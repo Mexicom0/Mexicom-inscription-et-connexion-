@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mexicom - Inscription et Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #2c3e50;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            color: #fff;
+            display: none;
+        }
+        .container.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        .toggle-btn {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle-btn" onclick="toggleForm()">Basculer vers Connexion</div>
+
+    <div id="signup" class="container active">
+        <h2>Inscription</h2>
+        <form onsubmit="redirectTo(event, 'https://mexicom0.github.io/Mexicom../')">
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mode de passe</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Veuillez confirmer votre mode de passe</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="form-group">
+                <label for="referral_code">Code de parrainage</label>
+                <input type="text" id="referral_code" name="referral_code">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Soumettre">
+            </div>
+        </form>
+    </div>
+
+    <div id="login" class="container">
+        <h2>Connexion</h2>
+        <form onsubmit="redirectTo(event, 'https://mexicom0.github.io/Mexicom../')">
+            <div class="form-group">
+                <label for="login_phone">Numéro de téléphone</label>
+                <input type="tel" id="login_phone" name="login_phone" required>
+            </div>
+            <div class="form-group">
+                <label for="login_password">Mode de passe</label>
+                <input type="password" id="login_password" name="login_password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Connexion">
+            </div>
+            <div class="form-group">
+                <a href="https://t.me/mexicom6" target="_blank">👲 Service Client</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleForm() {
+            const signupForm = document.getElementById('signup');
+            const loginForm = document.getElementById('login');
+            const toggleBtn = document.querySelector('.toggle-btn');
+
+            if (signupForm.classList.contains('active')) {
+                signupForm.classList.remove('active');
+                loginForm.classList.add('active');
+                toggleBtn.textContent = 'Basculer vers Inscription';
+            } else {
+                loginForm.classList.remove('active');
+                signupForm.classList.add('active');
+                toggleBtn.textContent = 'Basculer vers Connexion';
+            }
+        }
+
+        function redirectTo(event, url) {
+            event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+            window.location.href = url; // Redirige vers l'URL spécifiée
+        }
+    </script>
+
+</body>
+</html>
